@@ -79,14 +79,17 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section
+      id="contact"
+      className="relative overflow-hidden py-28"
+    >
 
       {/* Background Glow */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/10 blur-[140px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-[#7113be] via-[#620ea3] to-transparent blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
 
           {/* LEFT SIDE */}
           <motion.div
@@ -102,22 +105,22 @@ const Contact = () => {
           >
 
             {/* Title */}
-            <h2 className="text-5xl font-bold mb-8 text-white">
+            <h2 className="mb-8 text-5xl font-bold text-white">
               Let&apos;s Connect
             </h2>
 
             {/* Description */}
-            <p className="text-gray-400 leading-8 max-w-md">
+            <p className="max-w-md leading-8 text-gray-400">
               Have a project in mind or just want to say hi?
               Feel free to reach out. I&apos;m always open
               to discussing new opportunities.
             </p>
 
             {/* EMAIL */}
-            <div className="mt-10 flex items-start gap-4 group cursor-pointer">
+            <div className="group mt-10 flex cursor-pointer items-start gap-4">
 
               {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center text-cyan-400 text-2xl transition-all duration-500 group-hover:border-cyan-400 group-hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] group-hover:scale-110">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-500/10 text-2xl text-cyan-400 transition-all duration-500 group-hover:scale-110 group-hover:border-cyan-400 group-hover:shadow-[0_0_25px_rgba(34,211,238,0.4)]">
 
                 <HiOutlineMail />
 
@@ -126,11 +129,11 @@ const Contact = () => {
               {/* Text */}
               <div>
 
-                <p className="text-sm text-gray-500 uppercase transition-all duration-300 group-hover:text-cyan-300">
+                <p className="text-sm uppercase text-gray-500 transition-all duration-300 group-hover:text-cyan-300">
                   Email
                 </p>
 
-                <h3 className="text-gray-200 mt-1 transition-all duration-300 group-hover:text-white">
+                <h3 className="mt-1 text-gray-200 transition-all duration-300 group-hover:text-white">
                   torikuljony36@gmail.com
                 </h3>
 
@@ -139,10 +142,10 @@ const Contact = () => {
             </div>
 
             {/* SOCIAL */}
-            <div className="mt-8 flex items-start gap-4 group">
+            <div className="group mt-8 flex items-start gap-4">
 
               {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center text-cyan-400 text-2xl transition-all duration-500 group-hover:border-cyan-400 group-hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] group-hover:scale-110">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-500/10 text-2xl text-cyan-400 transition-all duration-500 group-hover:scale-110 group-hover:border-cyan-400 group-hover:shadow-[0_0_25px_rgba(34,211,238,0.4)]">
 
                 <FaGithub />
 
@@ -151,31 +154,36 @@ const Contact = () => {
               {/* Social Links */}
               <div>
 
-                <p className="text-sm text-gray-500 uppercase transition-all duration-300 group-hover:text-cyan-300">
+                <p className="text-sm uppercase text-gray-500 transition-all duration-300 group-hover:text-cyan-300">
                   Socials
                 </p>
 
-                <div className="flex gap-5 mt-3 text-gray-300">
+                <div className="mt-3 flex flex-wrap gap-5 text-gray-300">
 
+                  {/* GitHub */}
                   <a
-                    href="#"
-                    className="flex items-center gap-2 hover:text-cyan-400 hover:-translate-y-1 transition-all duration-300"
+                    href="https://github.com/torikuljony?tab=overview&from=2026-05-01&to=2026-05-27"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400"
                   >
                     <FaGithub />
                     GitHub
                   </a>
 
+                  {/* LinkedIn */}
                   <a
                     href="#"
-                    className="flex items-center gap-2 hover:text-cyan-400 hover:-translate-y-1 transition-all duration-300"
+                    className="flex items-center gap-2 transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400"
                   >
                     <FaLinkedin />
                     LinkedIn
                   </a>
 
+                  {/* Twitter */}
                   <a
                     href="#"
-                    className="flex items-center gap-2 hover:text-cyan-400 hover:-translate-y-1 transition-all duration-300"
+                    className="flex items-center gap-2 transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400"
                   >
                     <FaTwitter />
                     Twitter
@@ -204,13 +212,13 @@ const Contact = () => {
           >
 
             {/* Glow */}
-            <div className="absolute bottom-0 right-0 w-72 h-72 bg-cyan-500/10 blur-[100px] rounded-full"></div>
+            <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-[100px]"></div>
 
             {/* Glass Card */}
-            <div className="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[32px] p-8 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.37)] hover:border-cyan-400/40 hover:shadow-cyan-500/20 transition-all duration-500">
+            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.37)] backdrop-blur-2xl transition-all duration-500 hover:border-cyan-400/40 hover:shadow-cyan-500/20">
 
               {/* Hover Glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-purple-500/5 opacity-0 hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-purple-500/5 opacity-0 transition-all duration-500 hover:opacity-100"></div>
 
               {/* FORM */}
               <form
@@ -221,7 +229,7 @@ const Contact = () => {
                 {/* Name */}
                 <div>
 
-                  <label className="text-sm text-gray-400 uppercase">
+                  <label className="text-sm uppercase text-gray-400">
                     Full Name
                   </label>
 
@@ -232,7 +240,7 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="John Doe"
                     required
-                    className="w-full mt-3 bg-[#0f172a]/80 border border-white/10 rounded-2xl px-5 py-4 outline-none text-white focus:border-cyan-400 focus:shadow-[0_0_20px_rgba(34,211,238,0.25)] transition-all duration-300"
+                    className="mt-3 w-full rounded-2xl border border-white/10 bg-[#0f172a]/80 px-5 py-4 text-white outline-none transition-all duration-300 focus:border-cyan-400 focus:shadow-[0_0_20px_rgba(34,211,238,0.25)]"
                   />
 
                 </div>
@@ -240,7 +248,7 @@ const Contact = () => {
                 {/* Email */}
                 <div>
 
-                  <label className="text-sm text-gray-400 uppercase">
+                  <label className="text-sm uppercase text-gray-400">
                     Email Address
                   </label>
 
@@ -251,7 +259,7 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="john@example.com"
                     required
-                    className="w-full mt-3 bg-[#0f172a]/80 border border-white/10 rounded-2xl px-5 py-4 outline-none text-white focus:border-cyan-400 focus:shadow-[0_0_20px_rgba(34,211,238,0.25)] transition-all duration-300"
+                    className="mt-3 w-full rounded-2xl border border-white/10 bg-[#0f172a]/80 px-5 py-4 text-white outline-none transition-all duration-300 focus:border-cyan-400 focus:shadow-[0_0_20px_rgba(34,211,238,0.25)]"
                   />
 
                 </div>
@@ -259,7 +267,7 @@ const Contact = () => {
                 {/* Message */}
                 <div>
 
-                  <label className="text-sm text-gray-400 uppercase">
+                  <label className="text-sm uppercase text-gray-400">
                     Message
                   </label>
 
@@ -270,21 +278,19 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Your message here..."
                     required
-                    className="w-full mt-3 bg-[#0f172a]/80 border border-white/10 rounded-2xl px-5 py-4 outline-none text-white resize-none focus:border-cyan-400 focus:shadow-[0_0_20px_rgba(34,211,238,0.25)] transition-all duration-300"
+                    className="mt-3 w-full resize-none rounded-2xl border border-white/10 bg-[#0f172a]/80 px-5 py-4 text-white outline-none transition-all duration-300 focus:border-cyan-400 focus:shadow-[0_0_20px_rgba(34,211,238,0.25)]"
                   ></textarea>
 
                 </div>
 
                 {/* Button */}
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-cyan-400 hover:bg-cyan-300 hover:scale-[1.02] hover:shadow-[0_0_35px_rgba(34,211,238,0.5)] transition-all duration-500 text-black font-semibold py-4 rounded-2xl shadow-lg shadow-cyan-500/20"
-                >
-
-                  {loading ? "Sending..." : "Send Message"}
-
-                </button>
+               <button
+                type="submit"
+               disabled={loading}
+               className="w-full rounded-2xl border border-cyan-400/20 bg-gradient-to-r from-[#22d3ee] via-[#38bdf8] to-[#a855f7] py-4 font-semibold   text-white shadow-[0_0_25px_rgba(34,211,238,0.25)] transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(168,85,247,0.45)]"
+               >
+               {loading ? "Sending..." : "Send Message"}
+               </button>
 
               </form>
 

@@ -5,6 +5,7 @@ import Skills from "@/components/Skills/Skills.jsx";
 import Projects from "@/components/Projects/Projects.jsx";
 import Contact from "@/components/Contact/Contact.jsx";
 import Footer from "@/components/Footer/Footer.jsx";
+import Academic from "@/components/Academic/Academic";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Academic />
       <Skills />
       <Projects />
       <Contact />

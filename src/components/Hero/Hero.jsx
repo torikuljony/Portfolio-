@@ -54,7 +54,7 @@ const Hero = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 rounded-full mb-8">
 
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
 
               <p className="text-cyan-300 uppercase tracking-[3px] text-xs font-semibold">
                 Available For Hire
@@ -97,18 +97,24 @@ const Hero = () => {
             <div className="flex flex-wrap items-center gap-6 mt-10">
 
               {/* View Projects */}
-              <button className="bg-cyan-400 hover:bg-cyan-300 hover:scale-105 hover:shadow-cyan-400/50 transition-all duration-300 text-black font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-cyan-500/20">
+              <a
+                href="#portfolio"
+                className="bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 hover:scale-105 hover:shadow-[0_0_35px_rgba(34,211,238,0.45)] transition-all duration-500 text-black font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-cyan-500/20"
+              >
 
                 View Projects
 
-              </button>
+              </a>
 
               {/* Contact Me */}
-              <button className="border border-white/20 hover:border-cyan-400 hover:bg-cyan-400/10 text-white hover:text-cyan-400 transition-all duration-300 font-medium px-8 py-4 rounded-2xl">
+              <a
+                href="#contact"
+                className="border border-cyan-400/20 bg-white/5 backdrop-blur-xl hover:border-cyan-400 hover:bg-cyan-400/10 hover:shadow-[0_0_25px_rgba(34,211,238,0.25)] text-white hover:text-cyan-300 transition-all duration-500 font-medium px-8 py-4 rounded-2xl"
+              >
 
                 Contact Me
 
-              </button>
+              </a>
 
             </div>
 

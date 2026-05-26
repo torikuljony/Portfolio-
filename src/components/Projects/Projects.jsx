@@ -6,12 +6,15 @@ import { motion } from "framer-motion";
 
 const Projects = () => {
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section
+      id="portfolio"
+      className="relative overflow-hidden py-28"
+    >
 
       {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/10 blur-[140px] rounded-full"></div>
+      <div className="absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[140px]"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
 
         {/* Title */}
         <motion.div
@@ -25,19 +28,19 @@ const Projects = () => {
             once: false,
             amount: 0.2,
           }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className="text-4xl font-bold text-white md:text-5xl">
             Featured Projects
           </h2>
 
-          <div className="w-28 h-1 bg-cyan-400 mx-auto mt-4 rounded-full"></div>
+          <div className="mx-auto mt-4 h-1 w-28 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500"></div>
 
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
           {projects.map((project, index) => (
 
@@ -59,58 +62,75 @@ const Projects = () => {
                 amount: 0.2,
               }}
 
-              className="group relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[32px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.37)] hover:-translate-y-4 hover:border-cyan-400/40 hover:shadow-cyan-500/20 transition-all duration-500"
+              whileHover={{
+                y: -12,
+              }}
+
+              className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.37)] backdrop-blur-2xl transition-all duration-500 hover:border-cyan-400/40 hover:shadow-cyan-500/20"
             >
 
               {/* Hover Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500 z-0"></div>
+              <div className="absolute inset-0 z-0 bg-gradient-to-br from-cyan-400/5 via-transparent to-purple-500/5 opacity-0 transition-all duration-500 group-hover:opacity-100"></div>
 
               {/* Glow Ball */}
-              <div className="absolute -top-10 -right-10 w-28 h-28 bg-cyan-400/10 blur-[70px] rounded-full"></div>
+              <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-cyan-400/10 blur-[70px]"></div>
 
               {/* Image */}
-              <div className="overflow-hidden relative z-10">
+              <div className="relative z-10 overflow-hidden">
 
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={500}
                   height={300}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition-all duration-700"
+                  className="h-56 w-full object-cover transition-all duration-700 group-hover:scale-110"
                 />
 
               </div>
 
               {/* Content */}
-              <div className="p-7 relative z-10">
+              <div className="relative z-10 p-7">
 
                 {/* Category */}
-                <span className="text-xs bg-cyan-500/20 text-cyan-300 px-4 py-2 rounded-full border border-cyan-400/10">
+                <span className="rounded-full border border-cyan-400/10 bg-cyan-500/20 px-4 py-2 text-xs text-cyan-300">
 
                   {project.category}
 
                 </span>
 
                 {/* Title */}
-                <h3 className="text-2xl font-bold mt-5 text-white group-hover:text-cyan-300 transition-all duration-300">
+                <h3 className="mt-5 text-2xl font-bold text-white transition-all duration-300 group-hover:text-cyan-300">
 
                   {project.title}
 
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 mt-4 leading-8">
+                <p className="mt-4 leading-8 text-gray-400">
 
                   {project.description}
 
                 </p>
 
                 {/* Button */}
-                <button className="mt-7 bg-cyan-400 hover:bg-cyan-300 hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-500 text-black font-semibold px-6 py-3 rounded-2xl shadow-lg shadow-cyan-500/20">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/button relative mt-7 inline-flex overflow-hidden rounded-2xl p-[1.5px]"
+                >
 
-                  Live Demo
+                  {/* Animated Border */}
+                  <span className="absolute inset-[-1000%] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#22d3ee_0%,#a855f7_50%,#22d3ee_100%)]"></span>
 
-                </button>
+                  {/* Glass Button */}
+                  <span className="relative inline-flex items-center justify-center rounded-2xl bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-xl transition-all duration-300 group-hover/button:bg-white/15 group-hover/button:text-cyan-200">
+
+                    Live Demo
+
+                  </span>
+
+                </a>
 
               </div>
 
