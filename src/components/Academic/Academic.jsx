@@ -12,10 +12,10 @@ const academicData = [
   {
     id: 1,
     year: "2025",
-    title: "SSC - Science",
-    subtitle: "Sherpur Govt High School",
+    title: "Programming Hero",
+    subtitle: "Web Development",
     description:
-      "Focused on science, mathematics, and analytical problem solving.",
+      "Learning modern web development through Programming Hero, self-practice, real-world projects, and continuous problem solving.",
     icon: GraduationCap,
     side: "left",
     color: "from-cyan-400 to-sky-500",
