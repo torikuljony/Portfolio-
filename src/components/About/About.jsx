@@ -1,7 +1,16 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { FiDownload, FiX, FiZoomIn } from "react-icons/fi";
+import {
+  motion,
+  AnimatePresence,
+} from "framer-motion";
+
+import {
+  FiDownload,
+  FiX,
+  FiZoomIn,
+} from "react-icons/fi";
+
 import { useState } from "react";
 
 const About = () => {
@@ -12,24 +21,33 @@ const About = () => {
     <>
       <section
         id="about"
-        className="relative overflow-hidden py-24 md:py-32"
+        className="relative overflow-hidden py-20 md:py-28"
       >
 
         {/* Background Glow */}
-        <div className="absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[140px]"></div>
+        <div className="absolute left-1/2 top-0 h-[350px] w-[350px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[80px]"></div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-6">
 
           {/* Heading */}
           <motion.div
-            initial={{ opacity: 0, y: 70 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{
+              opacity: 0,
+              y: 40,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
             transition={{
-              duration: 1,
+              duration: 0.6,
               ease: [0.25, 0.1, 0.25, 1],
             }}
-            viewport={{ once: false, amount: 0.2 }}
-            className="mb-20 text-center"
+            viewport={{
+              once: true,
+              amount: 0.05,
+            }}
+            className="mb-16 text-center"
           >
 
             <p className="mb-4 text-sm uppercase tracking-[4px] text-cyan-400">
@@ -48,83 +66,101 @@ const About = () => {
           <motion.div
             initial={{
               opacity: 0,
-              y: 120,
+              y: 60,
             }}
             whileInView={{
               opacity: 1,
               y: 0,
             }}
             transition={{
-              duration: 1,
-              ease: [0.25, 0.1, 0.25, 1],
+              duration: 0.6,
             }}
             viewport={{
-              once: false,
-              amount: 0.2,
+              once: true,
+              amount: 0.05,
             }}
             whileHover={{
-              y: -10,
+              y: -4,
             }}
-            className="group relative overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_8px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl transition-all duration-500 hover:border-cyan-400/30 hover:shadow-cyan-500/10 md:p-14"
+            className="group relative overflow-hidden rounded-[35px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-all duration-500 hover:border-cyan-400/30 hover:shadow-cyan-500/10 md:p-12"
           >
 
             {/* Hover Gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 via-transparent to-purple-500/10 opacity-0 transition-all duration-500 group-hover:opacity-100"></div>
 
             {/* Glow */}
-            <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-cyan-400/10 blur-[100px]"></div>
+            <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-cyan-400/10 blur-[60px]"></div>
 
-            <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-purple-500/10 blur-[100px]"></div>
+            <div className="absolute -bottom-20 -left-20 h-52 w-52 rounded-full bg-purple-500/10 blur-[60px]"></div>
 
             {/* Content */}
-            <div className="relative z-10 grid items-center gap-16 lg:grid-cols-2">
+            <div className="relative z-10 grid items-center gap-14 lg:grid-cols-2">
 
               {/* LEFT SIDE */}
               <div>
 
-                {/* Image */}
-                <div className="relative mb-10 flex justify-center lg:justify-start">
+                <div className="relative flex justify-center lg:justify-start">
 
                   {/* Glow */}
-                  <div className="absolute inset-0 rounded-full bg-cyan-400/20 blur-[100px]"></div>
+                  <div className="absolute inset-0 rounded-full bg-cyan-400/10 blur-[60px]"></div>
 
                   {/* Premium Image Card */}
                   <motion.div
+                    initial={{
+                      opacity: 0,
+                      scale: 0.9,
+                      y: 40,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      scale: 1,
+                      y: 0,
+                    }}
                     whileHover={{
                       rotate: -1,
-                      y: -8,
+                      y: -6,
+                      scale: 1.02,
                     }}
                     transition={{
-                      duration: 0.4,
+                      duration: 0.7,
+                      ease: "easeOut",
+                    }}
+                    viewport={{
+                      once: true,
+                      amount: 0.2,
                     }}
                     onClick={() => setShowImage(true)}
+                    style={{
+                      willChange: "transform",
+                    }}
                     className="group/image relative cursor-pointer"
                   >
 
                     {/* Animated Border */}
-                    <div className="absolute -inset-[2px] rounded-[38px] bg-gradient-to-r from-cyan-400 via-sky-500 to-purple-500 opacity-0 blur-sm transition-all duration-700 group-hover/image:opacity-100"></div>
+                    <div className="absolute -inset-[2px] rounded-[38px] bg-gradient-to-r from-cyan-400 via-sky-500 to-purple-500 opacity-70 blur-sm transition-all duration-700 group-hover/image:opacity-100"></div>
 
                     {/* Image */}
-                    <div className="relative overflow-hidden rounded-[35px] border border-white/10 bg-[#0f172a]">
+                    <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#0f172a]">
 
                       <img
                         src="/image.11.png"
                         alt="Profile"
-                        className="w-[260px] object-cover transition-all duration-700 group-hover/image:scale-110 sm:w-[320px] md:w-[360px] lg:w-[400px]"
+                        className="w-[260px] object-cover transition-all duration-700 group-hover/image:scale-105 sm:w-[320px] md:w-[360px] lg:w-[390px]"
                       />
 
-                      {/* Dark Overlay */}
+                      {/* Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/80 via-[#020617]/10 to-transparent"></div>
 
                       {/* Shine Effect */}
                       <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-all duration-1000 group-hover/image:translate-x-full"></div>
 
                       {/* Hover Content */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500 group-hover/image:opacity-100">
+                      <div className="absolute inset-0 flex items-center justify-center opacity-100 md:opacity-0 transition-all duration-500 md:group-hover/image:opacity-100">
 
                         <div className="flex items-center gap-2 rounded-full border border-cyan-400/40 bg-black/40 px-5 py-3 text-sm font-medium text-cyan-300 backdrop-blur-xl shadow-[0_0_30px_rgba(34,211,238,0.25)]">
 
                           <FiZoomIn className="text-lg" />
+
                           View Photo
 
                         </div>
@@ -142,25 +178,93 @@ const About = () => {
               {/* RIGHT SIDE */}
               <div>
 
-                <h3 className="mb-6 text-3xl font-bold leading-tight text-white md:text-5xl">
+                <motion.h3
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.1,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  className="mb-6 text-3xl font-bold leading-tight text-white md:text-5xl"
+                >
                   Building modern digital experiences with clean & scalable code.
-                </h3>
+                </motion.h3>
 
-                <p className="mb-6 text-lg leading-9 text-gray-300">
+                <motion.p
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.2,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  className="mb-6 text-lg leading-9 text-gray-300"
+                >
                   I am a passionate MERN Stack Developer focused on creating
                   premium web applications with modern UI/UX and high
                   performance. I enjoy turning ideas into powerful and elegant
                   digital experiences.
-                </p>
+                </motion.p>
 
-                <p className="text-lg leading-9 text-gray-400">
+                <motion.p
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.3,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  className="text-lg leading-9 text-gray-400"
+                >
                   My expertise includes React.js, Next.js, MongoDB,
                   Express.js, and Tailwind CSS. I always focus on writing
                   clean code, responsive design, and smooth user experiences.
-                </p>
+                </motion.p>
 
                 {/* Buttons */}
-                <div className="mt-10 flex flex-wrap gap-5">
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.4,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  className="mt-10 flex flex-wrap gap-5"
+                >
 
                   {/* Download CV */}
                   <a
@@ -170,6 +274,7 @@ const About = () => {
                   >
 
                     <FiDownload className="text-lg" />
+
                     Download CV
 
                   </a>
@@ -184,70 +289,82 @@ const About = () => {
 
                   </a>
 
-                </div>
+                </motion.div>
 
                 {/* Stats */}
                 <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
 
-                  {/* Card 1 */}
-                  <div className="group relative overflow-hidden rounded-3xl border border-cyan-400/10 bg-gradient-to-br from-cyan-500/10 to-transparent p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]">
+                  {[
+                    {
+                      number: "2+",
+                      text: "Years Experience",
+                      color: "cyan",
+                    },
+                    {
+                      number: "20+",
+                      text: "Projects Completed",
+                      color: "purple",
+                    },
+                    {
+                      number: "100%",
+                      text: "Responsive Design",
+                      color: "cyan",
+                    },
+                    {
+                      number: "MERN",
+                      text: "Stack Specialist",
+                      color: "purple",
+                    },
+                  ].map((item, index) => (
 
-                    <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-cyan-400/10 blur-3xl"></div>
+                    <motion.div
+                      key={index}
+                      initial={{
+                        opacity: 0,
+                        y: 30,
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        delay: index * 0.1,
+                      }}
+                      viewport={{
+                        once: true,
+                      }}
+                      whileHover={{
+                        y: -6,
+                      }}
+                      className={`group relative overflow-hidden rounded-3xl border p-7 backdrop-blur-xl transition-all duration-500 ${
+                        item.color === "cyan"
+                          ? "border-cyan-400/10 bg-gradient-to-br from-cyan-500/10 to-transparent hover:border-cyan-400/40 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]"
+                          : "border-purple-400/10 bg-gradient-to-br from-purple-500/10 to-transparent hover:border-purple-400/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]"
+                      }`}
+                    >
 
-                    <h4 className="mb-3 text-5xl font-extrabold text-cyan-400">
-                      2+
-                    </h4>
+                      <div className={`absolute -right-10 -top-10 h-28 w-28 rounded-full blur-3xl ${
+                        item.color === "cyan"
+                          ? "bg-cyan-400/10"
+                          : "bg-purple-400/10"
+                      }`}></div>
 
-                    <p className="text-lg font-medium text-gray-300">
-                      Years Experience
-                    </p>
+                      <h4 className={`mb-3 text-5xl font-extrabold ${
+                        item.color === "cyan"
+                          ? "text-cyan-400"
+                          : "text-purple-400"
+                      }`}>
+                        {item.number}
+                      </h4>
 
-                  </div>
+                      <p className="text-lg font-medium text-gray-300">
+                        {item.text}
+                      </p>
 
-                  {/* Card 2 */}
-                  <div className="group relative overflow-hidden rounded-3xl border border-purple-400/10 bg-gradient-to-br from-purple-500/10 to-transparent p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-purple-400/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+                    </motion.div>
 
-                    <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-purple-400/10 blur-3xl"></div>
-
-                    <h4 className="mb-3 text-5xl font-extrabold text-purple-400">
-                      20+
-                    </h4>
-
-                    <p className="text-lg font-medium text-gray-300">
-                      Projects Completed
-                    </p>
-
-                  </div>
-
-                  {/* Card 3 */}
-                  <div className="group relative overflow-hidden rounded-3xl border border-cyan-400/10 bg-gradient-to-br from-cyan-500/10 to-transparent p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]">
-
-                    <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-cyan-400/10 blur-3xl"></div>
-
-                    <h4 className="mb-3 text-5xl font-extrabold text-cyan-400">
-                      100%
-                    </h4>
-
-                    <p className="text-lg font-medium text-gray-300">
-                      Responsive Design
-                    </p>
-
-                  </div>
-
-                  {/* Card 4 */}
-                  <div className="group relative overflow-hidden rounded-3xl border border-purple-400/10 bg-gradient-to-br from-purple-500/10 to-transparent p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-purple-400/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]">
-
-                    <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-purple-400/10 blur-3xl"></div>
-
-                    <h4 className="mb-3 text-5xl font-extrabold text-purple-400">
-                      MERN
-                    </h4>
-
-                    <p className="text-lg font-medium text-gray-300">
-                      Stack Specialist
-                    </p>
-
-                  </div>
+                  ))}
 
                 </div>
 
@@ -261,7 +378,7 @@ const About = () => {
 
       </section>
 
-      {/* PREMIUM IMAGE MODAL */}
+      {/* IMAGE MODAL */}
       <AnimatePresence>
 
         {showImage && (
@@ -276,11 +393,11 @@ const About = () => {
             exit={{
               opacity: 0,
             }}
-            className="fixed inset-0 z-[999] flex items-center justify-center bg-black/90 p-5 backdrop-blur-xl"
+            className="fixed inset-0 z-[999] flex items-center justify-center bg-black/90 p-5 backdrop-blur-md"
           >
 
-            {/* Background Blur Glow */}
-            <div className="absolute h-[500px] w-[500px] rounded-full bg-cyan-500/20 blur-[150px]"></div>
+            {/* Glow */}
+            <div className="absolute h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-[100px]"></div>
 
             {/* Close Button */}
             <motion.button
@@ -304,24 +421,22 @@ const About = () => {
             <motion.img
               initial={{
                 opacity: 0,
-                scale: 0.7,
-                y: 50,
+                scale: 0.8,
               }}
               animate={{
                 opacity: 1,
                 scale: 1,
-                y: 0,
               }}
               exit={{
                 opacity: 0,
-                scale: 0.7,
+                scale: 0.8,
               }}
               transition={{
-                duration: 0.5,
+                duration: 0.4,
               }}
               src="/image.11.png"
               alt="Profile Large"
-              className="relative z-10 max-h-[90vh] w-auto rounded-[35px] border border-white/10 shadow-[0_0_80px_rgba(34,211,238,0.25)]"
+              className="relative z-10 max-h-[90vh] w-auto rounded-[30px] border border-white/10 shadow-[0_0_60px_rgba(34,211,238,0.2)]"
             />
 
           </motion.div>
