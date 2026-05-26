@@ -41,14 +41,13 @@ const Contact = () => {
     try {
 
       const response = await fetch(
-        "https://formspree.io/f/xwpqepqj",
+        "https://formspree.io/f/mqejgdpq",
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify(formData),
+          body: new FormData(e.target),
         }
       );
 
@@ -162,7 +161,7 @@ const Contact = () => {
 
                   {/* GitHub */}
                   <a
-                    href="https://github.com/torikuljony?tab=overview&from=2026-05-01&to=2026-05-27"
+                    href="https://github.com/torikuljony"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400"
@@ -226,6 +225,13 @@ const Contact = () => {
                 className="relative z-10 space-y-6"
               >
 
+                {/* Hidden Subject */}
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New Portfolio Message 🚀"
+                />
+
                 {/* Name */}
                 <div>
 
@@ -284,13 +290,15 @@ const Contact = () => {
                 </div>
 
                 {/* Button */}
-               <button
-                type="submit"
-               disabled={loading}
-               className="w-full rounded-2xl border border-cyan-400/20 bg-gradient-to-r from-[#22d3ee] via-[#38bdf8] to-[#a855f7] py-4 font-semibold   text-white shadow-[0_0_25px_rgba(34,211,238,0.25)] transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(168,85,247,0.45)]"
-               >
-               {loading ? "Sending..." : "Send Message"}
-               </button>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full rounded-2xl border border-cyan-400/20 bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 py-4 font-semibold text-white shadow-[0_0_25px_rgba(34,211,238,0.25)] transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(168,85,247,0.45)]"
+                >
+
+                  {loading ? "Sending..." : "Send Message"}
+
+                </button>
 
               </form>
 
