@@ -24,14 +24,18 @@ const Footer = () => {
         <div className="flex items-center gap-5 text-gray-300">
 
           <a
-            href="#"
+             href="https://github.com/torikuljony"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-cyan-400 duration-300"
           >
             <FaGithub />
           </a>
 
           <a
-            href="#"
+             href="https://www.linkedin.com/in/torikul-islam-287b91297/"
+                    target="_blank"
+                    rel="noopener noreferrer"
             className="hover:text-cyan-400 duration-300"
           >
             <FaLinkedin />

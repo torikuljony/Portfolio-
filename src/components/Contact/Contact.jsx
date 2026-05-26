@@ -172,7 +172,9 @@ const Contact = () => {
 
                   {/* LinkedIn */}
                   <a
-                    href="#"
+                     href="https://www.linkedin.com/in/torikul-islam-287b91297/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400"
                   >
                     <FaLinkedin />
