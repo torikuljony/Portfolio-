@@ -6,28 +6,71 @@ import { useEffect, useState } from "react";
 
 const Hero = () => {
 
-  // Typing Animation
-  const text = "Next.js & Modern Web Developer";
+  // Typing Texts
+  const texts = [
+    "MERN Stack Developer",
+    "Next.js Specialist",
+    "Full Stack Web Developer",
+  ];
 
   const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
 
-    let index = 0;
+    let textIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
 
-    const interval = setInterval(() => {
+    const typeEffect = () => {
 
-      setDisplayText(text.slice(0, index));
+      const currentText = texts[textIndex];
 
-      index++;
+      if (!deleting) {
 
-      if (index > text.length) {
-        clearInterval(interval);
+        // Typing
+        setDisplayText(
+          currentText.substring(0, charIndex + 1)
+        );
+
+        charIndex++;
+
+        // Full text হলে wait করবে
+        if (charIndex === currentText.length) {
+
+          deleting = true;
+
+          setTimeout(typeEffect, 1500);
+
+          return;
+
+        }
+
+      } else {
+
+        // Deleting
+        setDisplayText(
+          currentText.substring(0, charIndex - 1)
+        );
+
+        charIndex--;
+
+        // সব delete হলে next text
+        if (charIndex === 0) {
+
+          deleting = false;
+
+          textIndex =
+            (textIndex + 1) % texts.length;
+
+        }
+
       }
 
-    }, 100);
+      setTimeout(typeEffect, deleting ? 50 : 100);
 
-    return () => clearInterval(interval);
+    };
+
+    typeEffect();
 
   }, []);
 
@@ -35,48 +78,60 @@ const Hero = () => {
     <section className="relative min-h-screen overflow-hidden bg-[#020617] pt-28">
 
       {/* Background Glow */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-cyan-500/20 blur-[140px] rounded-full"></div>
+      <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-cyan-500/20 blur-[140px]"></div>
 
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-purple-600/20 blur-[140px] rounded-full"></div>
+      <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-purple-600/20 blur-[140px]"></div>
 
       {/* Main Container */}
-      <div className="max-w-[1400px] mx-auto px-6 min-h-screen flex items-center">
+      <div className="mx-auto flex min-h-screen max-w-[1400px] items-center px-6">
 
-        <div className="grid lg:grid-cols-2 gap-10 items-center w-full">
+        <div className="grid w-full items-center gap-10 lg:grid-cols-2">
 
           {/* LEFT SIDE */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
           >
 
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 rounded-full mb-8">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2">
 
-              <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+              <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-500"></span>
 
-              <p className="text-cyan-300 uppercase tracking-[3px] text-xs font-semibold">
+              <p className="text-xs font-semibold uppercase tracking-[3px] text-cyan-300">
                 Available For Hire
               </p>
 
             </div>
 
             {/* Heading */}
-            <h1 className="text-6xl md:text-7xl font-bold leading-tight text-white">
+            <h1 className="text-6xl font-bold leading-tight text-white md:text-7xl">
 
               Hi, I&apos;m{" "}
 
-              <span className="gradient-text">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 bg-clip-text text-transparent">
                 Torikul
               </span>
 
             </h1>
 
             {/* Typing Animation */}
-            <h2 className="mt-5 text-2xl md:text-3xl font-semibold text-gray-300 min-h-[40px]">
+            <h2 className="mt-5 min-h-[40px] text-2xl font-semibold text-gray-300 md:text-3xl">
 
-              {displayText}
+              <span className="bg-gradient-to-r from-cyan-300 to-purple-400 bg-clip-text text-transparent">
+
+                {displayText}
+
+              </span>
 
               <span className="animate-pulse text-cyan-400">
                 |
@@ -85,7 +140,7 @@ const Hero = () => {
             </h2>
 
             {/* Description */}
-            <p className="mt-8 text-gray-400 text-lg leading-8 max-w-xl">
+            <p className="mt-8 max-w-xl text-lg leading-8 text-gray-400">
 
               Building modern, responsive, and visually attractive
               web experiences with a focus on performance and
@@ -94,12 +149,12 @@ const Hero = () => {
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-wrap items-center gap-6 mt-10">
+            <div className="mt-10 flex flex-wrap items-center gap-6">
 
               {/* View Projects */}
               <a
                 href="#portfolio"
-                className="bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 hover:scale-105 hover:shadow-[0_0_35px_rgba(34,211,238,0.45)] transition-all duration-500 text-black font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-cyan-500/20"
+                className="rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 px-8 py-4 font-semibold text-black shadow-lg shadow-cyan-500/20 transition-all duration-500 hover:scale-105 hover:shadow-[0_0_35px_rgba(34,211,238,0.45)]"
               >
 
                 View Projects
@@ -109,7 +164,7 @@ const Hero = () => {
               {/* Contact Me */}
               <a
                 href="#contact"
-                className="border border-cyan-400/20 bg-white/5 backdrop-blur-xl hover:border-cyan-400 hover:bg-cyan-400/10 hover:shadow-[0_0_25px_rgba(34,211,238,0.25)] text-white hover:text-cyan-300 transition-all duration-500 font-medium px-8 py-4 rounded-2xl"
+                className="rounded-2xl border border-cyan-400/20 bg-white/5 px-8 py-4 font-medium text-white backdrop-blur-xl transition-all duration-500 hover:border-cyan-400 hover:bg-cyan-400/10 hover:text-cyan-300 hover:shadow-[0_0_25px_rgba(34,211,238,0.25)]"
               >
 
                 Contact Me
@@ -122,31 +177,41 @@ const Hero = () => {
 
           {/* RIGHT SIDE */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.7 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            initial={{
+              opacity: 0,
+              scale: 0.7,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{
+              duration: 1,
+            }}
             className="relative flex justify-center"
           >
 
             {/* Circle Border */}
-            <div className="absolute w-[500px] h-[500px] rounded-full border border-cyan-400/10"></div>
+            <div className="absolute h-[500px] w-[500px] rounded-full border border-cyan-400/10"></div>
 
             {/* Glow */}
-            <div className="absolute w-[350px] h-[350px] bg-cyan-500/20 blur-[100px] rounded-full"></div>
+            <div className="absolute h-[350px] w-[350px] rounded-full bg-cyan-500/20 blur-[100px]"></div>
 
             {/* Floating Top Card */}
             <motion.div
-              animate={{ y: [0, -10, 0] }}
+              animate={{
+                y: [0, -10, 0],
+              }}
               transition={{
                 duration: 3,
                 repeat: Infinity,
               }}
-              className="absolute top-10 right-10 z-20"
+              className="absolute right-10 top-10 z-20"
             >
 
-              <div className="bg-[#111827] border border-white/10 w-14 h-14 rounded-2xl flex items-center justify-center shadow-xl">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#111827] shadow-xl">
 
-                <span className="text-cyan-400 text-xl">
+                <span className="text-xl text-cyan-400">
                   ⌘
                 </span>
 
@@ -156,7 +221,9 @@ const Hero = () => {
 
             {/* Floating Bottom Card */}
             <motion.div
-              animate={{ y: [0, 10, 0] }}
+              animate={{
+                y: [0, 10, 0],
+              }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
@@ -164,9 +231,9 @@ const Hero = () => {
               className="absolute bottom-10 left-10 z-20"
             >
 
-              <div className="bg-[#111827] border border-white/10 w-14 h-14 rounded-2xl flex items-center justify-center shadow-xl">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#111827] shadow-xl">
 
-                <span className="text-purple-400 text-xl">
+                <span className="text-xl text-purple-400">
                   &lt;/&gt;
                 </span>
 
@@ -176,7 +243,9 @@ const Hero = () => {
 
             {/* Profile Image */}
             <motion.div
-              animate={{ y: [0, -12, 0] }}
+              animate={{
+                y: [0, -12, 0],
+              }}
               transition={{
                 duration: 5,
                 repeat: Infinity,
@@ -184,14 +253,17 @@ const Hero = () => {
               className="relative z-10"
             >
 
-              <div className="w-[320px] h-[320px] md:w-[430px] md:h-[430px] rounded-full overflow-hidden border border-cyan-400/20 shadow-2xl shadow-cyan-500/20 hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-500 cursor-pointer">
+              <div className="group relative h-[320px] w-[320px] cursor-pointer overflow-hidden rounded-full border border-cyan-400/20 shadow-2xl shadow-cyan-500/20 transition-all duration-700 hover:scale-105 hover:shadow-[0_0_60px_rgba(34,211,238,0.45)] md:h-[430px] md:w-[430px]">
+
+                {/* Animated Glow */}
+                <div className="absolute inset-0 z-10 rounded-full bg-gradient-to-tr from-cyan-400/20 via-transparent to-purple-500/20 opacity-0 transition-all duration-700 group-hover:opacity-100"></div>
 
                 <Image
                   src="/image.portfolio.png"
                   alt="profile"
                   width={500}
                   height={500}
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
                 />
 
               </div>
@@ -201,7 +273,9 @@ const Hero = () => {
           </motion.div>
 
         </div>
+
       </div>
+
     </section>
   );
 };
